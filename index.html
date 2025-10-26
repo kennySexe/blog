@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where Deep Learning Meets Privacy - AI Medical Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .hero {
+            max-width: 56rem;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 6rem 1.5rem;
+            }
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #111827;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 3.75rem;
+            }
+        }
+
+        .author-info {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            color: #6b7280;
+        }
+
+        .author-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-name {
+            font-weight: 500;
+            color: #111827;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 3rem;
+            padding: 3rem 0;
+        }
+
+        article {
+            flex: 1;
+            max-width: 48rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111827;
+            margin: 2rem 0 1rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+            color: #374151;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        li {
+            display: flex;
+            gap: 0.75rem;
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 0.75rem;
+        }
+
+        .bullet {
+            color: #9ca3af;
+            margin-top: 0.25rem;
+        }
+
+        strong {
+            color: #111827;
+            font-weight: 600;
+        }
+
+        .image-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+        }
+
+        .image-with-border {
+            border: 1px solid #e5e7eb;
+        }
+
+        .citation {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        aside {
+            width: 16rem;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1023px) {
+            aside {
+                display: none;
+            }
+        }
+
+        .toc-sticky {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .toc-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .toc-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .toc-link {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+            background: none;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .toc-link:hover {
+            color: #111827;
+            background-color: #f9fafb;
+        }
+
+        .toc-link.active {
+            background-color: #f3f4f6;
+            color: #111827;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero">
+            <h1>Where Deep Learning Meets Privacy</h1>
+            <div class="author-info">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <div class="author-avatar"></div>
+                    <span class="author-name">Yonglin, Piao</span>
+                </div>
+                <span style="color: #d1d5db;">•</span>
+                <time>Oct 26, 2025</time>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <article>
+                <section id="introduction">
+                    <h2>Introduction</h2>
+                    <p>The first time I came to understand the concept of privacy-preserving machine learning was during a senior-year project in college. Our graduation project aimed to design a model that could recognize human CT images, identify potential medical issues, and enhance the clarity of those images.</p>
+                    <p>When we started looking for datasets, we ran into challenges. On Hugging Face—a popular platform for sharing models and datasets—there were very few relevant medical imaging datasets, far from enough for our model to truly learn. So, we turned to publicly available university datasets and open research projects to find the data we needed.</p>
+                    <p>However, when I first examined those datasets, I began to feel uneasy about privacy concerns. A few years earlier, Fredrikson et al. had introduced the concept of Model Inversion Attacks, showing that by accessing a trained model, one could reconstruct the original training data—such as real human faces—from the model's output.</p>
+                    <p>This realization made me think: if someone with malicious intent repeatedly queried our model to extract real data used during training, our potential clients would lose all trust in our product. That thought sparked my interest in data privacy and encryption techniques.</p>
+                    <p>In this context, I began reading the 2016 ACM CCS paper "Deep Learning with Differential Privacy" by Abadi et al.. The paper does not merely propose an "improved algorithm"; rather, it attempts to establish a computable and verifiable privacy protection mechanism within the highly complex, non-convex optimization framework of deep learning itself.</p>
+                </section>
+
+                <section id="the-challenge">
+                    <h2>What is Differential Privacy</h2>
+                    <p>The mathematical formula for differential privacy (as shown below) comes up several times throughout the paper, so I went back to the definition of Differential Privacy, or DP for short. Basically, it's all about giving a formal privacy guarantee for the output of an algorithm.</p>
+                    <p>So I realized that, in a mathematical sense, differential privacy isn't about "hiding" or "masking" data — it's really about making the probability distribution insensitive. In other words, DP doesn't make the data disappear; it just makes the algorithm's output almost unaffected by whether a particular individual is in the dataset or not!</p>
+                    
+                    <div class="image-container">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/0837d5114763bc4a38205183f4949457-pNvhLEgmE3g4nJKd9xKXz3l5pvt43m.png" alt="Differential Privacy Formula" />
+                    </div>
+
+                    <p>In more academic terms, for two neighboring datasets, D and D', that differ by only one individual, the output distribution of algorithm M should remain almost the same. Under this definition, ε controls the level of privacy leakage — the smaller it is, the stronger the privacy — while δ represents the upper bound on the probability of violating that guarantee.</p>
+                    <p>One of the cool things about DP is that it's composable — if several algorithms each satisfy differential privacy, then putting them together still gives you DP. You just need to add up their privacy budgets.</p>
+                    <p>But when you move into deep learning, where updates happen all the time, this method makes the privacy budget explode — seriously, it becomes impossible to manage. And that's exactly why Abadi and his colleagues introduced the Moments Accountant.</p>
+                </section>
+
+                <section id="ai-solution">
+                    <h2>Differential Privacy & SGD</h2>
+                    <p>As I said before, gradient descent needs tons of updates, and since each one goes through the training data again and again, the model ends up performing pretty badly. So I started looking at how deep neural networks are actually trained — and yeah, it's nothing like the classic convex optimization we learn from textbooks.</p>
+                    <p>The standard SGD training process is pretty straightforward — at each iteration, it samples a mini-batch from the dataset, calculates the gradient of the loss, and then updates the parameters.</p>
+                    
+                    <div class="image-container">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/252ab70fbbe1e027ac8146c25f89568c-71jVIv1AKdBUKxQSwselQzsyrBRCup.png" alt="SGD Update Formula" />
+                    </div>
+
+                    <p>Here, η is the learning rate, L is the loss function, and xi represents the data samples in the current mini-batch. Basically, the model's "memory" comes from the locality of the gradients — it tends to remember people who stand out, those with unique or unusual features. And if one sample happens to have an exceptionally large gradient, it might even dominate an entire update, leaving a clear "fingerprint" in the model's parameters.</p>
+                    <p>That's when data leakage can happen! So to avoid that, we need to tone down the influence of those strong, individual gradients.</p>
+                </section>
+
+                <section id="technical-approach">
+                    <h2>How DP-SGD works?</h2>
+                    <p>So how can we have strong privacy protection and still keep the model's learning performance intact? That's where the most important concept in the whole paper comes in — DP-SGD.</p>
+                    
+                    <div class="image-container">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/9-Figure2-1-A2L9s7YNHXVVMwUIsYelO4lxpZFrpH.png" alt="DP-SGD Workflow Diagram" class="image-with-border" />
+                        <p class="citation">Source: Membership Inference Attack against Differentially Private Deep Learning Model</p>
+                    </div>
+
+                    <p>If we take the idea of DP and plug it into SGD, we get DP-SGD. (Sounds simple, right?) Of course it's not that trivial, so let's walk through it step by step.</p>
+                    <p>Before we really dive in, there's one concept that'll make everything a lot easier to understand — the EM step. It's basically a general method for estimating parameters in probabilistic models that have latent variables or incomplete data.</p>
+                    
+                    <div class="image-container">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/EM_combined_horizontal-fO1LKP46fkhdCBwndqqaGI0TRpceHS.png" alt="EM Algorithm Progression" class="image-with-border" />
+                    </div>
+
+                    <p>The EM algorithm works by repeatedly estimating the distribution of the latent variables (the E-step) and updating the parameters (the M-step) to approximately maximize the likelihood. In other words, it helps the model make better and better guesses over time. During the E-step, the model "guesses" the probability that each sample belongs to a certain class or latent state under the current parameters. Then in the M-step, it "re-trains" the model based on those guesses, adjusting the parameters to maximize the likelihood under these soft labels. The E-step and M-step alternate, and typically the log-likelihood keeps increasing until the process converges.</p>
+                    
+                    <h3>3 Step</h3>
+                    <ul>
+                        <li>
+                            <span class="bullet">•</span>
+                            <span><strong>Gradient Clipping:</strong> Step one: they set an upper limit on each sample's gradient. Let's say each sample has a gradient gi, Then we define a threshold C, and clip the gradient's L2 norm as follows:</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="image-container">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/94adadd66c87689f02313b7c5015e416-qcwfoD2pmFw8cJGQ2izv53CnQ6o4sC.png" alt="Gradient Clipping Formula" />
+                    </div>
+
+                    <p>This step is kind of like setting a "speaking time limit" in a group discussion — everyone gets to share their opinion, but no one gets to dominate the conversation. As a result, we're not only protecting privacy, but also handling those outlier samples at the same time — because, you know, real-world data is never perfect.</p>
+                    
+                    <ul>
+                        <li>
+                            <span class="bullet">•</span>
+                            <span><strong>Gaussian Noise Addition:</strong> Step two: and this is really the heart of the paper, before averaging all the clipped gradients, the algorithm adds a random noise term to their sum. Here, L is the lot size, N denotes a multidimensional Gaussian distribution, and σ controls the strength of the noise as follows:</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="image-container">
+                        <img src="https://blob.v0.app/Aq0Ks.png" alt="Gaussian Noise Addition Formula" />
+                    </div>
+
+                    <p>The intuition here is like blurring individual voices in a crowd — everyone contributes, but each person's input gets mixed with a bit of random noise. That way, an outside observer can't tell whether any specific person's opinion was actually included or not.</p>
+                    
+                    <ul>
+                        <li>
+                            <span class="bullet">•</span>
+                            <span><strong>Moments Accountant:</strong> Step three: my favorite part. In early DP research, algorithms could only roughly add up the privacy loss. Think of it like running training for many steps, with each step "spending" a bit of privacy budget, and then summing up the total at the end. But Abadi and his team came up with a more refined approach. Instead of directly adding up the privacy loss, they track the higher-order moments of the privacy loss — that's why it's called the Moments Accountant. In other words, every training step carries a bit of uncertainty. Rather than looking at each individual error, they look at the overall shape of the distribution. This gives a much tighter and more accurate estimate of the total ε value.</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="results">
+                    <h2>Results</h2>
+                    <p>When they tested it on the MNIST dataset, the traditional method gave an ε value of 9.34, while the Moments Accountant brought it down to just 1.26 — that's a huge improvement in privacy! And the best part is, the model's performance didn't drop — it actually got better. I even tried it out myself locally, and the results were impressive.</p>
+                    
+                    <div class="image-container">
+                        <img src="https://blob.v0.app/Aq0Ks.png" alt="MNIST Dataset Samples" class="image-with-border" />
+                    </div>
+                    
+                    <div class="image-container">
+                        <img src="https://blob.v0.app/Aq0Ks.png" alt="NLL Training Curve" class="image-with-border" />
+                    </div>
+
+                    <p>The experiment section in the paper is super detailed, especially the comparison between MNIST and CIFAR-10. I used the exact same network structure they did in my own test.</p>
+                    <p>That means even when I add noise into the gradients, the model can still recognize handwritten digits! The train accuracy and test accuracy of the differentially private model are almost the same — which shows that it's not overfitting.</p>
+                </section>
+
+                <section id="future">
+                    <h2>Conclusion: Teaching AI the Art of Forgetting</h2>
+                    <p>We often describe AI as something that knows everything. But as I read and reflected on this paper, I realized — AI doesn't have to know it all. In fact, sometimes it needs to learn how to forget.</p>
+                    <p>In the world of differential privacy, learning is an act of restraint. A good learning model doesn't memorize every sample — it learns to distill patterns from the noise. And in doing so, it not only protects human privacy, but also becomes more general and adaptable.</p>
+                    <p>In my eyes, this paper represents the true beginning of modern trustworthy AI — the moment we started teaching machines not just to think, but to be responsible.</p>
+                </section>
+
+                <section id="conclusion">
+                    <h2>References</h2>
+                    <p>Abadi, M., Chu, A., Goodfellow, I., McMahan, H. B., Mironov, I., Talwar, K., & Zhang, L. (2016). Deep learning with differential privacy. In Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security (pp. 308–318). ACM.</p>
+                    <p>https://doi.org/10.1145/2976749.2978318</p>
+                    <p>Jayaraman, B., & Evans, D. (2019). Evaluating differential privacy for deep learning models: A case study in membership inference attacks. In Proceedings of the 28th USENIX Security Symposium (USENIX Security 19) (pp. 261–278). USENIX Association.</p>
+                    <p>https://www.usenix.org/conference/usenixsecurity19/presentation/jayaraman</p>
+                </section>
+            </article>
+
+            <aside>
+                <div class="toc-sticky">
+                    <nav>
+                        <p class="toc-title">Table of Contents</p>
+                        <div class="toc-nav">
+                            <button class="toc-link" onclick="scrollToSection('introduction')">Introduction</button>
+                            <button class="toc-link" onclick="scrollToSection('the-challenge')">What is Differential Privacy</button>
+                            <button class="toc-link" onclick="scrollToSection('ai-solution')">Differential Privacy & SGD</button>
+                            <button class="toc-link" onclick="scrollToSection('technical-approach')">How DP-SGD works?</button>
+                            <button class="toc-link" onclick="scrollToSection('results')">Results</button>
+                            <button class="toc-link" onclick="scrollToSection('future')">Conclusion</button>
+                            <button class="toc-link" onclick="scrollToSection('conclusion')">References</button>
+                        </div>
+                    </nav>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Intersection Observer for active section highlighting
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.toc-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        const activeLink = document.querySelector(`[onclick="scrollToSection('${entry.target.id}')"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                });
+            },
+            { rootMargin: '-20% 0px -80% 0px' }
+        );
+
+        document.querySelectorAll('section[id]').forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
